@@ -97,54 +97,54 @@ export default function Home() {
           );
         })}
 
-        <div className="flexCenter">
+        <div className="flex-center">
           <Button
             style={navStyle}
             name="시작하기"
             onClick={() => moveProductionPage()}
           />
         </div>
-      </main>
-      <style jsx>{`
-        .main {
-          display: flex;
-          flex-direction: column;
-          /* align-items: center; */
-        }
-        .explanation {
-          display: flex;
-          justify-content: center;
-          width: 100%;
-        }
-        .w750 {
-          width: 750px;
-          height: auto;
-          @media screen and (max-width: 700px) {
-            width: 300px;
-            height: auto;
+        <style jsx>{`
+          .main {
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
           }
-        }
-        .w500 {
-          width: 500px;
-          height: auto;
+          .explanation {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+          }
+          .w750 {
+            width: 750px;
+            height: auto;
+            @media screen and (max-width: 700px) {
+              width: 300px;
+              height: auto;
+            }
+          }
+          .w500 {
+            width: 500px;
+            height: auto;
 
-          @media screen and (max-width: 700px) {
-            width: 250px;
-            height: auto;
+            @media screen and (max-width: 700px) {
+              width: 250px;
+              height: auto;
+            }
           }
-        }
-        .w100 {
-          width: 100%;
-        }
-        .flexCenter {
-          display: flex;
-          width: 100%;
-          justify-content: center;
-        }
-        .ex-list {
-          margin-bottom: 5px;
-        }
-      `}</style>
+          .w100 {
+            width: 100%;
+          }
+          .flex-center {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+          }
+          .ex-list {
+            margin-bottom: 5px;
+          }
+        `}</style>
+      </main>
     </>
   );
 }
