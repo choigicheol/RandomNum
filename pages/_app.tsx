@@ -96,7 +96,7 @@ function App({ Component, pageProps }: AppProps) {
             /* background-color: #ffffff; */
           }
           .center {
-            max-width: 1000px;
+            /* max-width: 1000px; */
             width: 100%;
             /* background-color: #000000; */
           }
