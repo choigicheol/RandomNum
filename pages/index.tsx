@@ -108,6 +108,7 @@ export default function Home() {
           .main {
             display: flex;
             flex-direction: column;
+            width: 100%;
             /* align-items: center; */
           }
           .explanation {
