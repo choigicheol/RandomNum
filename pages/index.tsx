@@ -78,7 +78,7 @@ export default function Home() {
             ))}
           </ul>
         </div>
-        <Divider />
+        {/* <Divider /> */}
         {subExplanations.map((ex) => {
           return (
             <React.Fragment key={ex.id}>
