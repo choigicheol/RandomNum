@@ -10,7 +10,7 @@ export default function Production() {
   return (
     <>
       <Head>
-        <title>로또 번호 랜덤 생성</title>
+        <title>로또 번호 랜덤 생성기</title>
         <meta name="description" content={metaContent}></meta>
       </Head>
       <main className="main">
