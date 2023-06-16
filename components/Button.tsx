@@ -6,6 +6,7 @@ interface styleProps {
   fontColor?: string;
   fontSize?: string;
   backgroundColor?: string;
+  borderRadius?: string;
 }
 
 interface Props {
@@ -24,7 +25,7 @@ function Button({ style, name, onClick }: Props) {
           height: ${style.height};
           color: ${style.fontColor || "#000000"};
           background: ${style.backgroundColor || "none"};
-          border-radius: 10%;
+          border-radius: ${style.borderRadius || "10%"};
           border: none;
           font-size: ${style.fontSize || "16px"};
           cursor: pointer;
