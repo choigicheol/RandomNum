@@ -1,0 +1,9 @@
+body{
+  display:flex;
+  width : 100%;
+  justify-content: center;
+}
+
+#__next{
+  width : 100%;
+}
