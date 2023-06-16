@@ -92,7 +92,7 @@ export default function Home() {
                 </ul>
               </div>
               <img className={ex.imgClass} src={ex.src} alt={ex.alt} />
-              <Divider />
+              {/* <Divider /> */}
             </React.Fragment>
           );
         })}
