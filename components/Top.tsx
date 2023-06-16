@@ -9,7 +9,7 @@ function Top() {
           로또 번호 생성기
         </Header>
       </div> */}
-      {/* <NavBar /> */}
+      <NavBar />
       <style jsx>{`
         .header {
           margin-top: 18px;

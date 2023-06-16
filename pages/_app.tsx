@@ -79,26 +79,20 @@ function App({ Component, pageProps }: AppProps) {
       />
 
       <div className="container">
-        <div className="center">
-          <Top />
-          <NumberContext.Provider
-            value={{ numbers, addNumbers, resetNumbers, deleteNumbers }}
-          >
-            <Component {...pageProps} />
-          </NumberContext.Provider>
-          <Footer />
-        </div>
+        <Top />
+        <NumberContext.Provider
+          value={{ numbers, addNumbers, resetNumbers, deleteNumbers }}
+        >
+          <Component {...pageProps} />
+        </NumberContext.Provider>
+        <Footer />
         <style jsx>{`
           .container {
             display: flex;
             width: 100%;
+            flex-direction: column;
             justify-content: center;
             /* background-color: #ffffff; */
-          }
-          .center {
-            /* max-width: 1000px; */
-            width: 100%;
-            /* background-color: #000000; */
           }
         `}</style>
       </div>

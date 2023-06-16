@@ -78,7 +78,7 @@ export default function Home() {
             ))}
           </ul>
         </div>
-        {/* <Divider /> */}
+        <Divider />
         {subExplanations.map((ex) => {
           return (
             <React.Fragment key={ex.id}>
@@ -92,7 +92,7 @@ export default function Home() {
                 </ul>
               </div>
               <img className={ex.imgClass} src={ex.src} alt={ex.alt} />
-              {/* <Divider /> */}
+              <Divider />
             </React.Fragment>
           );
         })}

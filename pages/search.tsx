@@ -13,9 +13,9 @@ function Search() {
           }
         ></meta>
       </Head>
-      <div className="flexCenter">준비 중</div>
+      <div className="flex-center">준비 중</div>
       <style jsx>{`
-        .flexCenter {
+        .flex-center {
           display: flex;
           width: 100%;
           justify-content: center;

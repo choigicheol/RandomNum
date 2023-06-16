@@ -115,7 +115,7 @@ function NumList() {
   };
 
   return (
-    <>
+    <div className="container">
       <ResetBtn listReset={listReset} />
       <div className="num-list">
         {list.map((el, idx) => {
@@ -146,13 +146,16 @@ function NumList() {
       <div className="error">숫자를 6개 이상 골라주세요</div>
       <GetNumberBtn makeResultNumbers={makeResultNumbers} />
       <style jsx>{`
+        .container {
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+        }
         .num-list {
-          /* width: 100%; */
           min-height: 330px;
           display: grid;
           grid-template-columns: repeat(11, 1fr);
           place-items: center;
-          /* gap: 20px; */
           margin: 30px 0;
           @media screen and (max-width: 700px) {
             grid-template-columns: repeat(6, 1fr);
@@ -172,7 +175,7 @@ function NumList() {
           display: ${windowWidth < 700 ? "inline" : "none"};
         }
       `}</style>
-    </>
+    </div>
   );
 }
 
