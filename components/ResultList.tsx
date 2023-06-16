@@ -72,7 +72,7 @@ function ResultList() {
           width: 100%;
           align-items: center;
           justify-content: center;
-          @media screen and (max-width: 700px) {
+          @media (max-width: 700px) {
             flex-direction: column;
           }
         }

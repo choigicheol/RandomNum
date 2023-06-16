@@ -119,16 +119,20 @@ export default function Home() {
           .w750 {
             width: 750px;
             height: auto;
-            @media screen and (max-width: 700px) {
+            @media (max-width: 700px) {
               width: 300px;
               height: auto;
             }
+            /* @media (max-width: 700px) {
+              width: 300px;
+              height: auto;
+            } */
           }
           .w500 {
             width: 500px;
             height: auto;
 
-            @media screen and (max-width: 700px) {
+            @media (max-width: 700px) {
               width: 250px;
               height: auto;
             }

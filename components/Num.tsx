@@ -34,7 +34,7 @@ function Num({ num, row, isSelect, numberSelectHandle }: Props) {
           cursor: pointer;
           opacity: ${isSelect ? 0.2 : 1};
           margin: 5px;
-          @media screen and (max-width: 700px) {
+          @media (max-width: 700px) {
             width: 30px;
             height: 30px;
             font-size: 18px;
