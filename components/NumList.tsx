@@ -114,6 +114,8 @@ function NumList() {
     setIsRow([prev, cur]);
   };
 
+  const MOBILE_MODE = `(max-width: 700px)`;
+
   return (
     <div className="container">
       <ResetBtn listReset={listReset} />
@@ -157,7 +159,7 @@ function NumList() {
           grid-template-columns: repeat(11, 1fr);
           place-items: center;
           margin: 30px 0;
-          @media (max-width: 700px) {
+          @media (${MOBILE_MODE}) {
             grid-template-columns: repeat(6, 1fr);
             gap: 5px;
             min-height: 490px;
