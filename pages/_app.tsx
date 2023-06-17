@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import * as gtag from "../lib/gtag";
 import Head from "next/head";
 import { DetailedHTMLProps, ScriptHTMLAttributes } from "react";
+import WindowWidthContext from "@/components/context/WindowWidthContext";
 
 interface CustomScriptProps
   extends DetailedHTMLProps<
@@ -21,6 +22,7 @@ interface CustomScriptProps
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
+
   useEffect(() => {
     const handleRouteChange = (url: any) => {
       gtag.pageview(url);
@@ -52,7 +54,21 @@ function App({ Component, pageProps }: AppProps) {
     crossorigin: "anonymous",
   };
 
-  // Usage
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    setWindowWidth(window.innerWidth);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
@@ -80,11 +96,13 @@ function App({ Component, pageProps }: AppProps) {
 
       <div className="container">
         <Top />
-        <NumberContext.Provider
-          value={{ numbers, addNumbers, resetNumbers, deleteNumbers }}
-        >
-          <Component {...pageProps} />
-        </NumberContext.Provider>
+        <WindowWidthContext.Provider value={{ windowWidth }}>
+          <NumberContext.Provider
+            value={{ numbers, addNumbers, resetNumbers, deleteNumbers }}
+          >
+            <Component {...pageProps} />
+          </NumberContext.Provider>
+        </WindowWidthContext.Provider>
         <Footer />
         <style jsx>{`
           .container {

@@ -3,26 +3,12 @@ import Num from "./Num";
 import ResultContext from "./context/ResultContext";
 import GetNumberBtn from "./GetNumberBtn";
 import ResetBtn from "./ResetBtn";
+import WindowWidthContext from "@/components/context/WindowWidthContext";
 
 function NumList() {
   const [list, setList] = useState<boolean[][]>([]);
   const { addNumbers } = useContext(ResultContext);
-
-  const [windowWidth, setWindowWidth] = useState<number>(0);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    setWindowWidth(window.innerWidth);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const { windowWidth } = useContext(WindowWidthContext);
 
   useEffect(() => {
     listReset();
@@ -114,12 +100,10 @@ function NumList() {
     setIsRow([prev, cur]);
   };
 
-  const MOBILE_MODE = `(max-width: 700px)`;
-
   return (
     <div className="container">
       <ResetBtn listReset={listReset} />
-      <div className="num-list">
+      <div className={windowWidth >= 700 ? "num-list" : "num-list mobile"}>
         {list.map((el, idx) => {
           return (
             <React.Fragment key={idx}>
@@ -159,11 +143,11 @@ function NumList() {
           grid-template-columns: repeat(11, 1fr);
           place-items: center;
           margin: 30px 0;
-          @media (${MOBILE_MODE}) {
-            grid-template-columns: repeat(6, 1fr);
-            gap: 5px;
-            min-height: 490px;
-          }
+        }
+        .mobile {
+          grid-template-columns: repeat(6, 1fr);
+          gap: 5px;
+          min-height: 490px;
         }
         .error {
           width: 100%;

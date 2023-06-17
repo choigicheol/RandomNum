@@ -4,6 +4,7 @@ import Num from "./Num";
 import Button from "./Button";
 import CountOddEven from "./CountOddEven";
 import { Divider } from "semantic-ui-react";
+import WindowWidthContext from "./context/WindowWidthContext";
 
 interface Props {
   numbers: number[];
@@ -12,6 +13,7 @@ interface Props {
 function ResultList() {
   const { numbers, addNumbers, deleteNumbers } = useContext(numbersContext);
   const [copyId, setCopyId] = useState<number | null>(null);
+  const { windowWidth } = useContext(WindowWidthContext);
 
   const deleteStyle = {
     width: "35px",
@@ -37,7 +39,12 @@ function ResultList() {
   return (
     <div>
       {numbers.map((el, idx) => (
-        <div key={idx} className="result-container">
+        <div
+          key={idx}
+          className={
+            windowWidth >= 700 ? "result-container" : "result-container column"
+          }
+        >
           <div className="result-number">
             {el.map((num, idx) => (
               <Num key={idx} num={num} row={idx} />
@@ -72,9 +79,9 @@ function ResultList() {
           width: 100%;
           align-items: center;
           justify-content: center;
-          @media (max-width: 700px) {
-            flex-direction: column;
-          }
+        }
+        .column {
+          flex-direction: column;
         }
         .result-number {
           display: flex;

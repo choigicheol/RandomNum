@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Head from "next/head";
 import { Divider } from "semantic-ui-react";
 import { useRouter } from "next/router";
 import Button from "@/components/Button";
+import WindowWidthContext from "@/components/context/WindowWidthContext";
 
 export default function Home() {
+  const { windowWidth } = useContext(WindowWidthContext);
   const router = useRouter();
   const metaContent =
     "1~45의 숫자중에 6개의 번호를 무작위로 만듭니다. 1~45에서 제외할 번호를 선택할 수 있습니다. 만들어진 숫자 조합이 과거 1등 당첨번호중에 있었는지 확인할 수 있습니다.";
@@ -30,6 +32,7 @@ export default function Home() {
     {
       id: 1,
       imgClass: "w750",
+      mobileImgClass: "w300",
       src: "./explanation1.png",
       alt: "사용설명1",
       contents: ["숫자를 클릭해 제외할 번호를 선택합니다."],
@@ -37,6 +40,7 @@ export default function Home() {
     {
       id: 2,
       imgClass: "w750",
+      mobileImgClass: "w300",
       src: "./explanation2.png",
       alt: "사용설명2",
       contents: [
@@ -47,6 +51,7 @@ export default function Home() {
     {
       id: 3,
       imgClass: "w500",
+      mobileImgClass: "w250",
       src: "./explanation3.png",
       alt: "사용설명3",
       contents: [
@@ -91,7 +96,11 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-              <img className={ex.imgClass} src={ex.src} alt={ex.alt} />
+              <img
+                className={windowWidth >= 700 ? ex.imgClass : ex.mobileImgClass}
+                src={ex.src}
+                alt={ex.alt}
+              />
               <Divider />
             </React.Fragment>
           );
@@ -119,23 +128,18 @@ export default function Home() {
           .w750 {
             width: 750px;
             height: auto;
-            @media (max-width: 700px) {
-              width: 300px;
-              height: auto;
-            }
-            /* @media (max-width: 700px) {
-              width: 300px;
-              height: auto;
-            } */
+          }
+          .w300 {
+            width: 300px;
+            height: auto;
           }
           .w500 {
             width: 500px;
             height: auto;
-
-            @media (max-width: 700px) {
-              width: 250px;
-              height: auto;
-            }
+          }
+          .w250 {
+            width: 250px;
+            height: auto;
           }
           .w100 {
             width: 100%;
