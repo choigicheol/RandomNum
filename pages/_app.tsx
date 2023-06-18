@@ -9,16 +9,7 @@ import Script from "next/script";
 import { useRouter } from "next/router";
 import * as gtag from "../lib/gtag";
 import Head from "next/head";
-import { DetailedHTMLProps, ScriptHTMLAttributes } from "react";
 import WindowWidthContext from "@/components/context/WindowWidthContext";
-
-interface CustomScriptProps
-  extends DetailedHTMLProps<
-    ScriptHTMLAttributes<HTMLScriptElement>,
-    HTMLScriptElement
-  > {
-  crossorigin?: string;
-}
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -48,6 +39,7 @@ function App({ Component, pageProps }: AppProps) {
   const deleteNumbers = (idx: number): void => {
     setNumbers(numbers.filter((el, index) => idx !== index));
   };
+
   const scriptProps = {
     async: true,
     src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5506839171114662",
