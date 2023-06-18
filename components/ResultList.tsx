@@ -5,13 +5,19 @@ import Button from "./Button";
 import CountOddEven from "./CountOddEven";
 import { Divider } from "semantic-ui-react";
 import WindowWidthContext from "./context/WindowWidthContext";
+import { Loader } from "semantic-ui-react";
+import { Find } from "@/pages/search";
 
 interface Props {
-  numbers: number[];
+  numbers: number[][];
+  isSearch?: boolean;
+  search?: (idx: number) => void;
+  searchId?: number[];
+  findDrwNo?: Find;
 }
 
-function ResultList() {
-  const { numbers, addNumbers, deleteNumbers } = useContext(numbersContext);
+function ResultList({ numbers, isSearch, search, searchId, findDrwNo }: Props) {
+  const { deleteNumbers } = useContext(numbersContext);
   const [copyId, setCopyId] = useState<number | null>(null);
   const { windowWidth } = useContext(WindowWidthContext);
 
@@ -21,9 +27,15 @@ function ResultList() {
     fontColor: "#ffffff",
     backgroundColor: "#d01919",
     fontSize: "12px",
+    borderRadius: "5px",
   };
 
   const copyStyle = {
+    ...deleteStyle,
+    backgroundColor: "#2185d0",
+  };
+
+  const searchStyle = {
     ...deleteStyle,
     backgroundColor: "#2185d0",
   };
@@ -38,6 +50,7 @@ function ResultList() {
 
   return (
     <div>
+      {!numbers.length && isSearch && <div>번호를 생성해주세요.</div>}
       {numbers.map((el, idx) => (
         <div
           key={idx}
@@ -51,24 +64,46 @@ function ResultList() {
             ))}
           </div>
           <div className="result-bottom">
-            <CountOddEven resultNumbers={el} />
-            <div className="delete-button">
-              <Button
-                style={deleteStyle}
-                name="삭제"
-                onClick={() => deleteNumbers(idx)}
-              />
-            </div>
-            <div>
-              <Button
-                style={copyStyle}
-                name="복사"
-                onClick={() => copyHandle(idx)}
-              />
-            </div>
-            <div className={`copyIcon ${copyId === idx ? "opacity1" : ""}`}>
-              V
-            </div>
+            {isSearch ? (
+              <div className="search-button">
+                {searchId && searchId.indexOf(idx) !== -1 ? (
+                  <Loader active inline size="small" />
+                ) : findDrwNo && findDrwNo[idx] ? (
+                  <div className="search-result">
+                    {findDrwNo[idx].length ? findDrwNo[idx] + "회" : "x"}
+                  </div>
+                ) : search !== undefined ? (
+                  <Button
+                    style={searchStyle}
+                    name="검색"
+                    onClick={() => search(idx)}
+                  ></Button>
+                ) : (
+                  <></>
+                )}
+              </div>
+            ) : (
+              <>
+                <CountOddEven resultNumbers={el} />
+                <div className="delete-button">
+                  <Button
+                    style={deleteStyle}
+                    name="삭제"
+                    onClick={() => deleteNumbers(idx)}
+                  />
+                </div>
+                <div>
+                  <Button
+                    style={copyStyle}
+                    name="복사"
+                    onClick={() => copyHandle(idx)}
+                  />
+                </div>
+                <div className={`copyIcon ${copyId === idx ? "opacity1" : ""}`}>
+                  V
+                </div>
+              </>
+            )}
           </div>
           <Divider />
         </div>
@@ -111,6 +146,17 @@ function ResultList() {
         .opacity1 {
           opacity: 1;
           transition: opacity 300ms ease-in-out;
+        }
+        .search-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px;
+          margin-left: 10px;
+        }
+        .search-result {
+          color: #2185d0;
+          font-weight: bold;
         }
       `}</style>
     </div>

@@ -5,9 +5,11 @@ import { Menu } from "semantic-ui-react";
 function NavBar() {
   const [activeItem, setActiveItem] = useState("home");
   const router = useRouter();
+
   const handleNavigation = (uri: string) => {
     router.push(uri);
   };
+
   return (
     <Menu inverted>
       <Menu.Item name="메인" onClick={() => handleNavigation("/")} />
@@ -16,7 +18,7 @@ function NavBar() {
         onClick={() => handleNavigation("production")}
       />
       <Menu.Item
-        name="과거당첨번호 검색"
+        name="전회차 1등비교"
         onClick={() => handleNavigation("search")}
       />
     </Menu>
