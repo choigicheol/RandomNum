@@ -60,6 +60,19 @@ export default function Home() {
         "복사 버튼을 누르면 해당하는 숫자 6개가 복사됩니다.",
       ],
     },
+    {
+      id: 4,
+      imgClass: "w500",
+      mobileImgClass: "w250",
+      src: "./explanation4.png",
+      alt: "사용설명4",
+      contents: [
+        "랜덤으로 생성한 번호를 전회차 1등비교 페이지에서 일치여부를 확인할 수 있습니다.",
+        "검색버튼을 누르면 전체 회차 1등 번호와 일치여부를 검색합니다.",
+        "일치하는 회차가 있다면 000회 와 같이 해당하는 회차를 알려줍니다.",
+        "일치하는 회차가 없다면 x로 나타납니다.",
+      ],
+    },
   ];
 
   const moveProductionPage = () => {
