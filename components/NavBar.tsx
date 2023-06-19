@@ -18,7 +18,7 @@ function NavBar() {
         onClick={() => handleNavigation("production")}
       />
       <Menu.Item
-        name="전회차 1등비교"
+        name="전회차 1등 비교"
         onClick={() => handleNavigation("search")}
       />
     </Menu>
