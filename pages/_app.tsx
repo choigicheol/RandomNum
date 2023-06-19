@@ -1,6 +1,6 @@
 import "./global.css";
 import "semantic-ui-css/semantic.min.css";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AppProps } from "next/app";
 import Top from "@/components/Top";
 import NumberContext from "../components/context/ResultContext";
@@ -86,8 +86,8 @@ function App({ Component, pageProps }: AppProps) {
         }}
       />
 
+      <Top />
       <div className="container">
-        <Top />
         <WindowWidthContext.Provider value={{ windowWidth }}>
           <NumberContext.Provider
             value={{ numbers, addNumbers, resetNumbers, deleteNumbers }}
@@ -95,17 +95,18 @@ function App({ Component, pageProps }: AppProps) {
             <Component {...pageProps} />
           </NumberContext.Provider>
         </WindowWidthContext.Provider>
-        <Footer />
-        <style jsx>{`
-          .container {
-            display: flex;
-            width: 100%;
-            flex-direction: column;
-            justify-content: center;
-            /* background-color: #ffffff; */
-          }
-        `}</style>
       </div>
+      <Footer />
+      <style jsx>{`
+        .container {
+          display: flex;
+          width: 100%;
+          min-height: 100vh;
+          flex-direction: column;
+          /* justify-content: center; */
+          /* background-color: #ffffff; */
+        }
+      `}</style>
     </>
   );
 }

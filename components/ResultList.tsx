@@ -21,7 +21,7 @@ function ResultList({ numbers, isSearch, search, searchId, findDrwNo }: Props) {
   const [copyId, setCopyId] = useState<number | null>(null);
   const { windowWidth } = useContext(WindowWidthContext);
 
-  const deleteStyle = {
+  const deleteBtnStyle = {
     width: "35px",
     height: "20px",
     fontColor: "#ffffff",
@@ -30,13 +30,13 @@ function ResultList({ numbers, isSearch, search, searchId, findDrwNo }: Props) {
     borderRadius: "5px",
   };
 
-  const copyStyle = {
-    ...deleteStyle,
+  const copyBtnStyle = {
+    ...deleteBtnStyle,
     backgroundColor: "#2185d0",
   };
 
-  const searchStyle = {
-    ...deleteStyle,
+  const searchBtnStyle = {
+    ...deleteBtnStyle,
     backgroundColor: "#2185d0",
   };
 
@@ -74,7 +74,7 @@ function ResultList({ numbers, isSearch, search, searchId, findDrwNo }: Props) {
                   </div>
                 ) : search !== undefined ? (
                   <Button
-                    style={searchStyle}
+                    style={searchBtnStyle}
                     name="검색"
                     onClick={() => search(idx)}
                   ></Button>
@@ -87,14 +87,14 @@ function ResultList({ numbers, isSearch, search, searchId, findDrwNo }: Props) {
                 <CountOddEven resultNumbers={el} />
                 <div className="delete-button">
                   <Button
-                    style={deleteStyle}
+                    style={deleteBtnStyle}
                     name="삭제"
                     onClick={() => deleteNumbers(idx)}
                   />
                 </div>
                 <div>
                   <Button
-                    style={copyStyle}
+                    style={copyBtnStyle}
                     name="복사"
                     onClick={() => copyHandle(idx)}
                   />

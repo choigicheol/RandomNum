@@ -11,7 +11,7 @@ export default function Home() {
   const metaContent =
     "로또 번호 1~45의 숫자중에 6개의 번호를 무작위로 생성합니다. 1~45에서 제외할 번호를 선택할 수 있습니다. 만들어진 숫자 조합이 과거 1등 당첨번호중에 있었는지 확인할 수 있습니다.";
 
-  const navStyle = {
+  const moveBtnStyle = {
     width: "150px",
     height: "40px",
     fontColor: "rgba(255,255,255,.9)",
@@ -109,11 +109,15 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-              <img
-                className={windowWidth >= 700 ? ex.imgClass : ex.mobileImgClass}
-                src={ex.src}
-                alt={ex.alt}
-              />
+              <div className="image-container">
+                <img
+                  className={
+                    windowWidth >= 700 ? ex.imgClass : ex.mobileImgClass
+                  }
+                  src={ex.src}
+                  alt={ex.alt}
+                />
+              </div>
               <Divider />
             </React.Fragment>
           );
@@ -121,7 +125,7 @@ export default function Home() {
 
         <div className="flex-center">
           <Button
-            style={navStyle}
+            style={moveBtnStyle}
             name="시작하기"
             onClick={() => moveProductionPage()}
           />
@@ -165,6 +169,11 @@ export default function Home() {
           }
           .ex-list {
             margin-bottom: 5px;
+          }
+          .image-container {
+            display: flex;
+            width: 100%;
+            justify-content: center;
           }
         `}</style>
       </main>
