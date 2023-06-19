@@ -84,6 +84,7 @@ export default function Home() {
       <Head>
         <title>로또 번호 랜덤 생성기</title>
         <meta name="description" content={metaContent}></meta>
+        <meta property="og:url" content="./ogImage.png" />
       </Head>
       <main className="main">
         <h1>이용하기전에</h1>
