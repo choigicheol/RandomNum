@@ -9,7 +9,7 @@ export default function Home() {
   const { windowWidth } = useContext(WindowWidthContext);
   const router = useRouter();
   const metaContent =
-    "1~45의 숫자중에 6개의 번호를 무작위로 만듭니다. 1~45에서 제외할 번호를 선택할 수 있습니다. 만들어진 숫자 조합이 과거 1등 당첨번호중에 있었는지 확인할 수 있습니다.";
+    "로또 번호 1~45의 숫자중에 6개의 번호를 무작위로 생성합니다. 1~45에서 제외할 번호를 선택할 수 있습니다. 만들어진 숫자 조합이 과거 1등 당첨번호중에 있었는지 확인할 수 있습니다.";
 
   const navStyle = {
     width: "150px",
