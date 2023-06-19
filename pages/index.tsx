@@ -82,9 +82,16 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>로또 번호 랜덤 생성기</title>
+        <title>로또 번호 랜덤 생성</title>
         <meta name="description" content={metaContent}></meta>
-        <meta property="og:url" content="./ogImage.png" />
+        <meta property="og:title" content="로또 번호 랜덤 생성" />
+        <meta property="og:url" content="https://random-num.vercel.app/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="./ogImage.png" />
+        <meta
+          property="og:description"
+          content="제외하고 싶은 숫자를 빼고 로또 번호를 랜덤으로 생성할 수 있습니다."
+        />
       </Head>
       <main className="main">
         <h1>이용하기전에</h1>
@@ -157,6 +164,7 @@ export default function Home() {
           }
           .w100 {
             width: 100%;
+            height: auto;
           }
           .flex-center {
             display: flex;
