@@ -14,6 +14,14 @@ class MyDocument extends Document {
             property="og:description"
             content="제외하고 싶은 숫자를 빼고 로또 번호를 랜덤으로 생성할 수 있습니다."
           />
+          <meta
+            name="google-site-verification"
+            content="FtkcTgXFFwQdrE8MJ-fJJ9AAzAuXCeJVLgLSnEH9x3o"
+          />
+          <meta
+            name="naver-site-verification"
+            content="31c53d3ef48c280516db203ac501ba0a74874760"
+          />
         </Head>
         <body>
           <Main />
