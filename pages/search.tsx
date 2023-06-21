@@ -88,7 +88,6 @@ function Search({ result }: ResultProps) {
           ></Button>
         )}
         <ResultList
-          numbers={numbers}
           isSearch={true}
           search={search}
           searchId={searchId}

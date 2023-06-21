@@ -9,15 +9,14 @@ import { Loader } from "semantic-ui-react";
 import { Find } from "@/pages/search";
 
 interface Props {
-  numbers: number[][];
   isSearch?: boolean;
   search?: (idx: number) => void;
   searchId?: number[];
   findDrwNo?: Find;
 }
 
-function ResultList({ numbers, isSearch, search, searchId, findDrwNo }: Props) {
-  const { deleteNumbers } = useContext(numbersContext);
+function ResultList({ isSearch, search, searchId, findDrwNo }: Props) {
+  const { numbers, deleteNumbers } = useContext(numbersContext);
   const [copyId, setCopyId] = useState<number | null>(null);
   const { windowWidth } = useContext(WindowWidthContext);
 

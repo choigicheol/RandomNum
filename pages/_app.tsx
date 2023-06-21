@@ -3,7 +3,7 @@ import "semantic-ui-css/semantic.min.css";
 import { useEffect, useState } from "react";
 import { AppProps } from "next/app";
 import Top from "@/components/Top";
-import NumberContext from "../components/context/ResultContext";
+import ResultContext from "../components/context/ResultContext";
 import Footer from "@/components/Footer";
 import Script from "next/script";
 import { useRouter } from "next/router";
@@ -89,11 +89,11 @@ function App({ Component, pageProps }: AppProps) {
       <Top />
       <div className="container">
         <WindowWidthContext.Provider value={{ windowWidth }}>
-          <NumberContext.Provider
+          <ResultContext.Provider
             value={{ numbers, addNumbers, resetNumbers, deleteNumbers }}
           >
             <Component {...pageProps} />
-          </NumberContext.Provider>
+          </ResultContext.Provider>
         </WindowWidthContext.Provider>
       </div>
       <Footer />

@@ -9,9 +9,9 @@ interface ResultContextType {
 
 const ResultContext = createContext<ResultContextType>({
   numbers: [],
-  addNumbers: () => {},
+  addNumbers: (arr: number[]) => {},
   resetNumbers: () => {},
-  deleteNumbers: () => {},
+  deleteNumbers: (idx: number) => {},
 });
 
 export default ResultContext;

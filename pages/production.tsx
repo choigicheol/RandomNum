@@ -19,7 +19,7 @@ export default function Production() {
       <main className="main">
         <NumList />
         <Divider />
-        <ResultList numbers={numbers} />
+        <ResultList />
       </main>
       <style jsx>{`
         .main {
