@@ -43,9 +43,11 @@ function GraphBar({ keyValue, count, width }: Props) {
         .number {
           font-size: 14px;
           font-weight: bold;
+          color: #000000b9;
         }
         .count {
           font-size: 12px;
+          color: #ffffff;
         }
       `}</style>
     </>
