@@ -78,7 +78,7 @@ function Graph({ result }: ResultProps) {
           <GraphBar
             key={keyValue}
             keyValue={keyValue}
-            width={`${(total[keyValue] / totalCount) * 100}%`}
+            width={`${(total[keyValue] / totalCount) * 100 || 0}%`}
             count={total[keyValue]}
           />
         ))}
