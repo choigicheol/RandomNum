@@ -4,6 +4,7 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 import { GetServerSideProps } from "next";
 import { ResultProps } from "@/src/interface/interface";
 import GraphBar from "@/components/GraphBar";
+import Head from "next/head";
 
 interface numObjData {
   [key: number]: number;
@@ -56,6 +57,15 @@ function Graph({ result }: ResultProps) {
 
   return (
     <div>
+      <Head>
+        <title>로또 번호 랜덤 생성</title>
+        <meta
+          name="description"
+          content={
+            "특정 회차 기간동안 번호별로 1등 당첨번호 등장 횟수를 알려줍니다."
+          }
+        ></meta>
+      </Head>
       <div className="input-box">
         <div>시작</div>
         <input
