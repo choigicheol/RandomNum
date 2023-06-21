@@ -73,6 +73,17 @@ export default function Home() {
         "일치하는 회차가 없다면 x로 나타납니다.",
       ],
     },
+    {
+      id: 5,
+      imgClass: "w500",
+      mobileImgClass: "w250",
+      src: "./explanation5.png",
+      alt: "사용설명5",
+      contents: [
+        "특정 회차동안 번호별로 1등 당첨번호에 등장한 횟수를 알려줍니다.",
+        "시작회차, 종료회차를 입력하고 검색을 누르면 해당 기간동안의 결과를 그래프로 보여줍니다.",
+      ],
+    },
   ];
 
   const moveProductionPage = () => {
