@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useContext } from "react";
 import { getBackgroundColor } from "@/src/util/function";
+import WindowWidthContext from "./context/WindowWidthContext";
 
 interface Props {
   num: number;
@@ -9,14 +10,25 @@ interface Props {
 }
 
 function Num({ num, row, isSelect, numberSelectHandle }: Props) {
+  const { windowWidth } = useContext(WindowWidthContext);
+
   return (
     <>
       {numberSelectHandle ? (
-        <div className="num-box" onClick={() => numberSelectHandle(num, row)}>
+        <div
+          className={windowWidth >= 700 ? "num-box" : "num-box mobile"}
+          onClick={() => numberSelectHandle(num, row)}
+        >
           <span className="shadowed-text">{num}</span>
         </div>
       ) : (
-        <div className="num-box result-num">
+        <div
+          className={
+            windowWidth >= 700
+              ? "num-box result-num"
+              : "num-box mobile result-num"
+          }
+        >
           <span className="shadowed-text">{num}</span>
         </div>
       )}
@@ -34,11 +46,11 @@ function Num({ num, row, isSelect, numberSelectHandle }: Props) {
           cursor: pointer;
           opacity: ${isSelect ? 0.2 : 1};
           margin: 5px;
-          @media (max-width: 700px) {
-            width: 30px;
-            height: 30px;
-            font-size: 18px;
-          }
+        }
+        .mobile {
+          width: 30px;
+          height: 30px;
+          font-size: 18px;
         }
         .shadowed-text {
           text-shadow: 2px 2px 4px rgba(35, 35, 35, 0.3);
