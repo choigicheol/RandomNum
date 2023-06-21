@@ -21,6 +21,10 @@ function NavBar() {
         name="전회차 1등 비교"
         onClick={() => handleNavigation("search")}
       />
+      <Menu.Item
+        name="번호별 등장 횟수"
+        onClick={() => handleNavigation("graph")}
+      />
     </Menu>
   );
 }
