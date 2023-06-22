@@ -6,7 +6,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="shortcut icon" href="./favicon.ico" />
-          <meta property="og:title" content="로또 번호 랜덤 생성" />
+          <meta property="og:title" content="로또 번호 생성" />
           <meta property="og:url" content="https://random-num.vercel.app/" />
           <meta property="og:type" content="website" />
           <meta property="og:image" content="./ogImage.png" />

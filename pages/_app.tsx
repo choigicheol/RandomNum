@@ -1,32 +1,21 @@
 import "./global.css";
 import "semantic-ui-css/semantic.min.css";
+import ResultContext from "../components/context/ResultContext";
+import WindowWidthContext from "@/components/context/WindowWidthContext";
 import { useEffect, useState } from "react";
 import { AppProps } from "next/app";
 import Top from "@/components/Top";
-import ResultContext from "../components/context/ResultContext";
 import Footer from "@/components/Footer";
 import Script from "next/script";
 import { useRouter } from "next/router";
 import * as gtag from "../lib/gtag";
 import Head from "next/head";
-import WindowWidthContext from "@/components/context/WindowWidthContext";
 
 function App({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-
-  useEffect(() => {
-    const handleRouteChange = (url: any) => {
-      gtag.pageview(url);
-    };
-    router.events.on("routeChangeComplete", handleRouteChange);
-    router.events.on("hashChangeComplete", handleRouteChange);
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-      router.events.off("hashChangeComplete", handleRouteChange);
-    };
-  }, [router.events]);
-
   const [numbers, setNumbers] = useState<number[][]>([]);
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
+  const router = useRouter();
 
   const addNumbers = (arr: number[]) => {
     setNumbers((prev) => [arr, ...prev]);
@@ -39,14 +28,6 @@ function App({ Component, pageProps }: AppProps) {
   const deleteNumbers = (idx: number): void => {
     setNumbers(numbers.filter((el, index) => idx !== index));
   };
-
-  const scriptProps = {
-    async: true,
-    src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5506839171114662",
-    crossorigin: "anonymous",
-  };
-
-  const [windowWidth, setWindowWidth] = useState<number>(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -61,6 +42,25 @@ function App({ Component, pageProps }: AppProps) {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  // 구글 에널리틱스
+  useEffect(() => {
+    const handleRouteChange = (url: any) => {
+      gtag.pageview(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    router.events.on("hashChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+      router.events.off("hashChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
+  const scriptProps = {
+    async: true,
+    src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5506839171114662",
+    crossorigin: "anonymous",
+  };
 
   return (
     <>
@@ -103,8 +103,6 @@ function App({ Component, pageProps }: AppProps) {
           width: 100%;
           min-height: 100vh;
           flex-direction: column;
-          /* justify-content: center; */
-          /* background-color: #ffffff; */
         }
       `}</style>
     </>

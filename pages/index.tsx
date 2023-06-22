@@ -9,7 +9,7 @@ export default function Home() {
   const { windowWidth } = useContext(WindowWidthContext);
   const router = useRouter();
   const metaContent =
-    "로또 번호 1~45의 숫자중에 6개의 번호를 무작위로 생성합니다. 1~45에서 제외할 번호를 선택할 수 있습니다. 만들어진 숫자 조합이 과거 1등 당첨번호중에 있었는지 확인할 수 있습니다.";
+    "제외할 번호를 선택해 로또 번호를 랜덤으로 생성합니다. 특정 기간 동안 번호별 등장 횟수를 알려줍니다.";
 
   const moveBtnStyle = {
     width: "150px",
@@ -93,7 +93,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>로또 번호 랜덤 생성</title>
+        <title>로또 번호 생성</title>
         <meta name="description" content={metaContent}></meta>
       </Head>
       <main className="main">
