@@ -58,7 +58,7 @@ function Graph({ result }: ResultProps) {
   return (
     <div>
       <Head>
-        <title>로또 번호 생성</title>
+        <title>로또번호 생성 | 번호별 등장 횟수</title>
         <meta
           name="description"
           content={

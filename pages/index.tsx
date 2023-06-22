@@ -9,7 +9,7 @@ export default function Home() {
   const { windowWidth } = useContext(WindowWidthContext);
   const router = useRouter();
   const metaContent =
-    "제외할 번호를 선택해 로또 번호를 랜덤으로 생성합니다. 특정 기간 동안 번호별 등장 횟수를 알려줍니다.";
+    "로또번호생성기입니다. 제외할 번호를 선택해 로또 번호를 랜덤으로 생성합니다. 특정 기간 동안 번호별 등장 횟수를 알려줍니다.";
 
   const moveBtnStyle = {
     width: "150px",
@@ -93,7 +93,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>로또 번호 생성</title>
+        <title>로또번호 생성 | 사용방법</title>
         <meta name="description" content={metaContent}></meta>
       </Head>
       <main className="main">

@@ -68,7 +68,7 @@ function Search({ result }: ResultProps) {
   return (
     <>
       <Head>
-        <title>로또 번호 생성</title>
+        <title> 로또번호 생성 | 전체회차 1등번호 비교검색</title>
         <meta
           name="description"
           content={
