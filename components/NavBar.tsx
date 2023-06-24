@@ -14,11 +14,11 @@ function NavBar() {
     <Menu inverted>
       <Menu.Item name="메인" onClick={() => handleNavigation("/")} />
       <Menu.Item
-        name="번호생성"
+        name="번호생성기"
         onClick={() => handleNavigation("production")}
       />
       <Menu.Item
-        name="전회차 1등 비교"
+        name="전체회차 1등 비교"
         onClick={() => handleNavigation("search")}
       />
       <Menu.Item

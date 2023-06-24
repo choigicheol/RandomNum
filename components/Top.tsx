@@ -4,11 +4,6 @@ import NavBar from "./NavBar";
 function Top() {
   return (
     <>
-      {/* <div className="header">
-        <Header as="h1" textAlign="center">
-          로또 번호 생성기
-        </Header>
-      </div> */}
       <NavBar />
       <style jsx>{`
         .header {
