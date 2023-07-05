@@ -57,6 +57,7 @@ function App({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   const scriptProps = {
+    async: true,
     src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5506839171114662",
     crossorigin: "anonymous",
   };
@@ -64,7 +65,7 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <Script async {...scriptProps} />;
+        <script {...scriptProps} />;
       </Head>
       <Script
         strategy="afterInteractive"
