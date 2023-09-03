@@ -56,7 +56,7 @@ export default function AddServerData() {
   return (
     <>
       <Head>
-        <title>로또 번호 랜덤 생성</title>
+        <title>로또 번호 생성</title>
         <meta
           name="description"
           content={
